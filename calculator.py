@@ -17,8 +17,13 @@ expression_field.place(relx=.5, rely=.2, \
 # Создаём функции для взаимодействием с кнопками
 def click_button(num):
     global expression
-    expression = expression + str(num)
-    equation.set(expression)
+    if (num == ".") and (len(expression) >= 2) and (expression[-1] == "."):
+        pass
+    elif (num == ".") and (len(expression) >= 3) and (expression[-1] in "+-*/"):
+        pass
+    else:
+        expression = expression + str(num)
+        equation.set(expression)
 
 # Функция для вычисления выражения
 def equal():
@@ -36,6 +41,11 @@ def clear():
     global expression
     expression = ""
     equation.set("")
+
+def delete():
+    global expression
+    expression = expression[:-1]
+    equation.set(expression)
 
 # кнопка '9'
 btn_9 = Button(text="9",
@@ -123,7 +133,7 @@ btn_plus = Button(text="+",
             foreground="#FFFAF0",
             font="Arial 18",
             command=lambda: click_button("+"))
-btn_plus.place(x=210, y=100, height=70, width=70, bordermode=OUTSIDE)
+btn_plus.place(x=210, y=170, height=70, width=70, bordermode=OUTSIDE)
 
 # кнопка '-'
 btn_minus = Button(text="-",
@@ -131,7 +141,7 @@ btn_minus = Button(text="-",
                     foreground="#FFFAF0",
                     font="Arial 18",
                     command=lambda: click_button("-"))
-btn_minus.place(x=280, y=100, height=70, width=70, bordermode=OUTSIDE)
+btn_minus.place(x=280, y=170, height=70, width=70, bordermode=OUTSIDE)
 
 # кнопка '*'
 btn_multiply = Button(text="*",
@@ -139,7 +149,7 @@ btn_multiply = Button(text="*",
                     foreground="#FFFAF0",
                     font="Arial 18",
                     command=lambda: click_button("*"))
-btn_multiply.place(x=210, y=170, height=70, width=70, bordermode=OUTSIDE)
+btn_multiply.place(x=210, y=240, height=70, width=70, bordermode=OUTSIDE)
 
 # кнопка '/'
 btn_divide = Button(text="/",
@@ -147,7 +157,7 @@ btn_divide = Button(text="/",
                     foreground="#FFFAF0",
                     font="Arial 18",
                     command=lambda: click_button("/"))
-btn_divide.place(x=280, y=170, height=70, width=70, bordermode=OUTSIDE)
+btn_divide.place(x=280, y=240, height=70, width=70, bordermode=OUTSIDE)
 
 # кнопка '='
 btn_equal = Button(text="=",
@@ -155,7 +165,7 @@ btn_equal = Button(text="=",
             foreground="#FFFAF0",
             font="Arial 18",
             command=equal)
-btn_equal.place(x=210, y=240, height=140, width=140, bordermode=OUTSIDE)
+btn_equal.place(x=210, y=310, height=70, width=140, bordermode=OUTSIDE)
 
 # кнопка '.'
 btn_dot = Button(text="{}".format("."),
@@ -172,6 +182,14 @@ btn_clear = Button(text="{}".format("C"),
             font="Arial 18",
             command=clear)
 btn_clear.place(x=140, y=310, height=70, width=70, bordermode=OUTSIDE)
+
+# кнопка 'delete' (delete - удалить)
+btn_delete = Button(text="{}".format("<="),
+            background="#A5AA5B",
+            foreground="#FFFAF0",
+            font="Arial 18",
+            command=delete)
+btn_delete.place(x=210, y=100, height=70, width=140, bordermode=OUTSIDE)
 
 # Запускаем графический интерфейс
 root.mainloop()
