@@ -14,13 +14,23 @@ expression_field = Entry(textvariable=equation, \
 expression_field.place(relx=.5, rely=.2, \
             height = 140, width = 350, anchor="c")
 
+# Вводим переменную для контроля точки
+dot = 0
+
 # Создаём функции для взаимодействием с кнопками
 def click_button(num):
-    global expression
-    if (num == ".") and (len(expression) >= 2) and (expression[-1] == "."):
+    global expression, dot
+    
+    if (num == ".") and (dot == 0):
+        dot = 1
+        expression = expression + str(num)
+        equation.set(expression)
+    elif (num == ".") and (dot == 1):
         pass
-    elif (num == ".") and (len(expression) >= 3) and (expression[-1] in "+-*/"):
-        pass
+    elif num in '+-/*':
+        dot = 0
+        expression = expression + str(num)
+        equation.set(expression)
     else:
         expression = expression + str(num)
         equation.set(expression)
