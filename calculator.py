@@ -1,9 +1,9 @@
-# Импортируем модуль tkinter для создания графического интерфейса
+# Importing module tkinter to create graphic interface
 from tkinter import *
 
-# Задаём базовые данные
+# Basic data
 root = Tk()
-root.title("Калькулятор")
+root.title("Calculator")
 root.geometry("350x380+400+450")
 
 equation = StringVar()
@@ -14,10 +14,10 @@ expression_field = Entry(textvariable=equation, \
 expression_field.place(relx=.5, rely=.2, \
             height = 140, width = 350, anchor="c")
 
-# Вводим переменную для контроля точки
+# Creating variable for (dot) control
 dot = 0
 
-# Создаём функции для взаимодействием с кнопками
+# Creating functions for buttons
 def click_button(num):
     global expression, dot
     
@@ -35,7 +35,7 @@ def click_button(num):
         expression = expression + str(num)
         equation.set(expression)
 
-# Функция для вычисления выражения
+# Function to find expression
 def equal():
     try:
         global expression
@@ -46,7 +46,7 @@ def equal():
         equation.set("Error")
         expression = ""
 
-# Функция для очистки калькулятора
+# Function to clear expression
 def clear():
     global expression
     expression = ""
@@ -57,7 +57,7 @@ def delete():
     expression = expression[:-1]
     equation.set(expression)
 
-# кнопка '9'
+# Button '9'
 btn_9 = Button(text="9",
             background="#808080",
             foreground="#FFFAF0",
@@ -65,7 +65,7 @@ btn_9 = Button(text="9",
             command=lambda: click_button("9"))
 btn_9.place(x=140, y=100, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '8'
+# Button '8'
 btn_8 = Button(text="8",
             background="#808080",
             foreground="#FFFAF0",
@@ -73,7 +73,7 @@ btn_8 = Button(text="8",
             command=lambda: click_button("8"))
 btn_8.place(x=70, y=100, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '7'
+# Button '7'
 btn_7 = Button(text="7",
             background="#808080",
             foreground="#FFFAF0",
@@ -81,7 +81,7 @@ btn_7 = Button(text="7",
             command=lambda: click_button("7"))
 btn_7.place(x=0, y=100, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '6'
+# Button '6'
 btn_6 = Button(text="6",
             background="#808080",
             foreground="#FFFAF0",
@@ -89,7 +89,7 @@ btn_6 = Button(text="6",
             command=lambda: click_button("6"))
 btn_6.place(x=140, y=170, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '5'
+# Button '5'
 btn_5 = Button(text="5",
             background="#808080",
             foreground="#FFFAF0",
@@ -97,7 +97,7 @@ btn_5 = Button(text="5",
             command=lambda: click_button("5"))
 btn_5.place(x=70, y=170, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '4'
+# Button '4'
 btn_4 = Button(text="4",
             background="#808080",
             foreground="#FFFAF0",
@@ -105,7 +105,7 @@ btn_4 = Button(text="4",
             command=lambda: click_button("4"))
 btn_4.place(x=0, y=170, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '3'
+# Button '3'
 btn_3 = Button(text="3",
             background="#808080",
             foreground="#FFFAF0",
@@ -113,7 +113,7 @@ btn_3 = Button(text="3",
             command=lambda: click_button("3"))
 btn_3.place(x=140, y=240, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '2'
+# Button '2'
 btn_2 = Button(text="2",
             background="#808080",
             foreground="#FFFAF0",
@@ -121,7 +121,7 @@ btn_2 = Button(text="2",
             command=lambda: click_button("2"))
 btn_2.place(x=70, y=240, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '1'
+# Button '1'
 btn_1 = Button(text="1",
             background="#808080",
             foreground="#FFFAF0",
@@ -129,7 +129,7 @@ btn_1 = Button(text="1",
             command=lambda: click_button("1"))
 btn_1.place(x=0, y=240, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '0'
+# Button '0'
 btn_0 = Button(text="0",
             background="#808080",
             foreground="#FFFAF0",
@@ -137,7 +137,7 @@ btn_0 = Button(text="0",
             command=lambda: click_button("0"))
 btn_0.place(x=0, y=310, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '+'
+# Button '+'
 btn_plus = Button(text="+",
             background="#808080",
             foreground="#FFFAF0",
@@ -145,7 +145,7 @@ btn_plus = Button(text="+",
             command=lambda: click_button("+"))
 btn_plus.place(x=210, y=170, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '-'
+# Button '-'
 btn_minus = Button(text="-",
                     background="#808080",
                     foreground="#FFFAF0",
@@ -153,7 +153,7 @@ btn_minus = Button(text="-",
                     command=lambda: click_button("-"))
 btn_minus.place(x=280, y=170, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '*'
+# Button '*'
 btn_multiply = Button(text="*",
                     background="#808080",
                     foreground="#FFFAF0",
@@ -161,7 +161,7 @@ btn_multiply = Button(text="*",
                     command=lambda: click_button("*"))
 btn_multiply.place(x=210, y=240, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '/'
+# Button '/'
 btn_divide = Button(text="/",
                     background="#808080",
                     foreground="#FFFAF0",
@@ -169,7 +169,7 @@ btn_divide = Button(text="/",
                     command=lambda: click_button("/"))
 btn_divide.place(x=280, y=240, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка '='
+# Button '='
 btn_equal = Button(text="=",
             background="#808080",
             foreground="#FFFAF0",
@@ -177,7 +177,7 @@ btn_equal = Button(text="=",
             command=equal)
 btn_equal.place(x=210, y=310, height=70, width=140, bordermode=OUTSIDE)
 
-# кнопка '.'
+# Button '.'
 btn_dot = Button(text="{}".format("."),
             background="#808080",
             foreground="#FFFAF0",
@@ -185,7 +185,7 @@ btn_dot = Button(text="{}".format("."),
             command=lambda: click_button("."))
 btn_dot.place(x=70, y=310, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка 'C' (clear - очистить)
+# Button 'C' (clear)
 btn_clear = Button(text="{}".format("C"),
             background="#A52A2A",
             foreground="#FFFAF0",
@@ -193,7 +193,7 @@ btn_clear = Button(text="{}".format("C"),
             command=clear)
 btn_clear.place(x=140, y=310, height=70, width=70, bordermode=OUTSIDE)
 
-# кнопка 'delete' (delete - удалить)
+# Button 'delete'
 btn_delete = Button(text="{}".format("<="),
             background="#A5AA5B",
             foreground="#FFFAF0",
@@ -201,5 +201,5 @@ btn_delete = Button(text="{}".format("<="),
             command=delete)
 btn_delete.place(x=210, y=100, height=70, width=140, bordermode=OUTSIDE)
 
-# Запускаем графический интерфейс
+# Starting up graphic interface
 root.mainloop()
