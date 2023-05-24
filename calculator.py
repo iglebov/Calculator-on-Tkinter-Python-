@@ -1,18 +1,14 @@
-# Importing module tkinter to create graphic interface
 from tkinter import *
 
-# Starting parameters for UI
 root = Tk()
 root.title("Calculator")
 root.geometry("350x380+400+450")
 equation = StringVar()
 expression = ""
-# Creating variable for dot appearance control
 dot = 0
 
 
 def click_button(num):
-    """Sets expression after activity"""
     global expression, dot
 
     if (num == ".") and (dot == 0):
@@ -31,7 +27,6 @@ def click_button(num):
 
 
 def equal():
-    """Finds result of expression"""
     try:
         global expression
         total = str(eval(expression))
@@ -43,14 +38,12 @@ def equal():
 
 
 def clear():
-    """Clears expression."""
     global expression
     expression = ""
     equation.set("")
 
 
 def delete():
-    """Deletes character."""
     global expression
     expression = expression[:-1]
     equation.set(expression)
